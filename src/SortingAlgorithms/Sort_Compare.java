@@ -1,7 +1,5 @@
 package SortingAlgorithms;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,16 +8,24 @@ import java.util.Random;
 /*
  * Created by Ahmed on 3/21/2017.
  */
-@SuppressWarnings("FieldCanBeLocal")
 public class Sort_Compare {
-    private final int TEST_CASES = 50000;
-    private final int MAX_VALUE = Integer.MAX_VALUE;
     private final List<Integer> expected = new ArrayList<>();
-    private List<Integer> actual = null;
-    private List<Integer> tmpActual = null;
     private final Random random = new Random();
     private final NSquared<Integer> nSquared = new NSquared<>();
     private final NLogN<Integer> nLogN = new NLogN<>();
+    private int TEST_CASES = 50000;
+    private int MAX_VALUE = Integer.MAX_VALUE;
+    private List<Integer> actual = null;
+    private List<Integer> tmpActual = null;
+
+    private Sort_Compare(int TEST_CASES, int MAX_VALUE) {
+        this.TEST_CASES = TEST_CASES;
+        this.MAX_VALUE = MAX_VALUE;
+    }
+
+    public static void main(String[] args) {
+        new Sort_Compare(30000, 1000).runTest();
+    }
 
     private void setUp() {
         for (int i = 0; i < TEST_CASES; i++) {
@@ -29,9 +35,11 @@ public class Sort_Compare {
         Collections.sort(expected);
     }
 
-    @Test
-    void test_all() {
+    private void runTest() {
         setUp();
+        System.out.println("Testing Sorting Algorithms");
+        System.out.println("Array Size: " + TEST_CASES + "   &   Max Integer Value: " + MAX_VALUE);
+        System.out.println();
         System.out.println(quickSortRunTime());
         System.out.println(mergeSortRunTime());
         System.out.println(bubbleSortRunTime());
@@ -44,7 +52,7 @@ public class Sort_Compare {
         nLogN.mergeSort(tmpActual, 0, actual.size() - 1);
         long endTime = getTime();
         long runTime = endTime - startTime;
-        return "Merge   Sort Run Time   = " + String.valueOf(runTime);
+        return "Merge   Sort Run Time   = " + String.valueOf(runTime) + " ms";
     }
 
     private String quickSortRunTime() {
@@ -53,7 +61,7 @@ public class Sort_Compare {
         nLogN.quickSort(tmpActual, 0, actual.size() - 1);
         long endTime = getTime();
         long runTime = endTime - startTime;
-        return "Quick   Sort Run Time   = " + String.valueOf(runTime);
+        return "Quick   Sort Run Time   = " + String.valueOf(runTime) + " ms";
     }
 
     private String bubbleSortRunTime() {
@@ -62,7 +70,7 @@ public class Sort_Compare {
         nSquared.bubbleSort(tmpActual);
         long endTime = getTime();
         long runTime = endTime - startTime;
-        return "Bubble  Sort Run Time   = " + String.valueOf(runTime);
+        return "Bubble  Sort Run Time   = " + String.valueOf(runTime) + " ms";
     }
 
     private String selectionSortRunTime() {
@@ -71,7 +79,7 @@ public class Sort_Compare {
         nSquared.selectionSort(tmpActual);
         long endTime = getTime();
         long runTime = endTime - startTime;
-        return "Selection Sort Run Time = " + String.valueOf(runTime);
+        return "Selection Sort Run Time = " + String.valueOf(runTime) + " ms";
     }
 
     private long getTime() {
