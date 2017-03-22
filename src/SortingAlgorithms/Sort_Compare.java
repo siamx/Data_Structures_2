@@ -23,6 +23,7 @@ public class Sort_Compare {
         this.MAX_VALUE = MAX_VALUE;
     }
 
+    // MAIN !
     public static void main(String[] args) {
         new Sort_Compare(30000, 1000).runTest();
     }
