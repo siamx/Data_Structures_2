@@ -25,7 +25,7 @@ public class Sort_Compare {
 
     // MAIN !
     public static void main(String[] args) {
-        new Sort_Compare(30000, 1000).runTest();
+        new Sort_Compare(30000, 5).runTest();
     }
 
     private void setUp() {
