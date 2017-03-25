@@ -18,8 +18,8 @@ class HeapSort<T extends Comparable<T>> {
         while (heapArray.size() > 0) {
             sorted.add(poll());
         }
-        for (T aSorted : sorted)
-            heapArray.add(aSorted);
+        heapArray.clear();
+        heapArray.addAll(sorted);
     }
 
     private void buildMaxHeap() {
