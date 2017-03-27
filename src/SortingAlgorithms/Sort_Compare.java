@@ -24,8 +24,10 @@ public class Sort_Compare {
 
     // MAIN !
     public static void main(String[] args) {
-        Sort_Compare sort_compare = new Sort_Compare(20000, 0x7fffffff);
-        sort_compare.runTest();
+        for (int i = 4500; i < 6001; i += 500) {
+            Sort_Compare sort_compare = new Sort_Compare(i, 0x7fffffff);
+            sort_compare.runTest();
+        }
     }
 
     private void setUp() {
@@ -37,13 +39,14 @@ public class Sort_Compare {
     private void runTest() {
         setUp();
         System.out.println("Testing Sorting Algorithms");
-        System.out.println("Array Size: " + TEST_CASES + "   &   Max Integer Value: " + MAX_VALUE);
+        System.out.println("Array Size: " + TEST_CASES + "   &   Max Value: " + MAX_VALUE);
         System.out.println();
         System.out.println(heapSortRunTime());
         System.out.println(quickSortRunTime());
         System.out.println(mergeSortRunTime());
         System.out.println(bubbleSortRunTime());
         System.out.println(selectionSortRunTime());
+        System.out.println("===============================================\n");
     }
 
     private String mergeSortRunTime() {
