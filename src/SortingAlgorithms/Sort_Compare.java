@@ -46,6 +46,7 @@ public class Sort_Compare {
         System.out.println(mergeSortRunTime());
         System.out.println(bubbleSortRunTime());
         System.out.println(selectionSortRunTime());
+        System.out.println(insertionSortRunTime());
         System.out.println("===============================================\n");
     }
 
@@ -91,6 +92,15 @@ public class Sort_Compare {
         heapSort.Sort(actualCopy);
         long runTime = getTime() - startTime;
         return "Heap    Sort Run Time   = " + String.valueOf(runTime) + " ms";
+    }
+
+
+    private String insertionSortRunTime() {
+        actualCopy = new ArrayList<>(actual);
+        long startTime = getTime();
+        nSquared.insertionSort(actualCopy);
+        long runTime = getTime() - startTime;
+        return "Insertion Sort Run Time = " + String.valueOf(runTime) + " ms";
     }
 
     private long getTime() {

@@ -49,4 +49,14 @@ public class NSquared_Test {
         System.out.println("Expected :" + expected);
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
+
+    @Test
+    void testInsertionSort() {
+        setUp();
+        System.out.println("Data :" + actual);
+        nSquared.insertionSort(actual);
+        System.out.println("My Sort  :" + actual);
+        System.out.println("Expected :" + expected);
+        assertArrayEquals(expected.toArray(), actual.toArray());
+    }
 }

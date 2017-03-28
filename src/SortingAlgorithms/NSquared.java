@@ -31,6 +31,17 @@ class NSquared<T extends Comparable<T>> {
         }
     }
 
+
+    void insertionSort(List<T> data) {
+        for (int i = 0; i < data.size(); i++) {
+            int hole = i;
+            while (hole > 0 && data.get(hole).compareTo(data.get(hole - 1)) < 0) {
+                swap(data, hole, --hole);
+            }
+        }
+    }
+
+
     private void swap(List<T> data, int i, int j) {
         T t = data.get(i);
         data.set(i, data.get(j));
