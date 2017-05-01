@@ -19,8 +19,8 @@ class HeapSort_Test {
     private final int TEST_SIZE = 10000;
     private final int MAX_VALUE = Integer.MAX_VALUE;
     private final List<Integer> expected = new ArrayList<>();
-    private List<Integer> actual = null;
     private final Random random = new Random();
+    private List<Integer> actual = null;
 
     private void setUp() {
         for (int i = 0; i < TEST_SIZE; i++) {

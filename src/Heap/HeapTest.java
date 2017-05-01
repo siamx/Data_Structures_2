@@ -15,7 +15,7 @@ class HeapTest {
     @Test
     void testBuildMaxHeap() {
         HeapBuilder<Integer> heapBuilder = new HeapBuilder<>();
-        Integer[] arr = {2, 3, 7, 10, 0, -9, 4, 50, 49, 1, 8};
+        Integer[] arr = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
         List<Integer> heapArray = new ArrayList<>(Arrays.asList(arr));
         heapBuilder.buildMaxHeap(heapArray);
         System.out.println("Built Heap : " + heapArray);
