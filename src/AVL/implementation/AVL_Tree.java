@@ -7,7 +7,7 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
     private static final int ALLOWED_IMBALANCE = 1;
     private INode<T> root;
 
-    AVL_Tree() {
+    public AVL_Tree() {
         root = null;
     }
 
