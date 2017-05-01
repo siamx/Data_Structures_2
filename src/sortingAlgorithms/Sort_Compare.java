@@ -1,4 +1,4 @@
-package SortingAlgorithms;
+package sortingAlgorithms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +91,7 @@ public class Sort_Compare {
         long startTime = getTime();
         heapSort.Sort(actualCopy);
         long runTime = getTime() - startTime;
-        return "Heap    Sort Run Time   = " + String.valueOf(runTime) + " ms";
+        return "heap    Sort Run Time   = " + String.valueOf(runTime) + " ms";
     }
 
 

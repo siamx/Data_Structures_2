@@ -1,4 +1,4 @@
-package Heap;
+package heap;
 
 /*
  * Created by Ahmed on 3/17/2017.
@@ -58,7 +58,7 @@ public class MaxHeap<T extends Comparable<T>> implements IHeap<T> {
     @Override
     public T poll() {
         if (isEmpty())
-            throw new RuntimeException("Heap is Empty !");
+            throw new RuntimeException("heap is Empty !");
         T root = heapArr.get(0);
         swap(0, getLastIndex());
         heapArr.remove(getLastIndex());

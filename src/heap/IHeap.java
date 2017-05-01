@@ -1,4 +1,4 @@
-package Heap;
+package heap;
 
 /*
  * Created by Ahmed on 3/17/2017.

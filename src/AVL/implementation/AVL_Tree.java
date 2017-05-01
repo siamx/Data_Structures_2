@@ -7,7 +7,7 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
     private static final int ALLOWED_IMBALANCE = 1;
     private INode<T> root;
 
-    public AVL_Tree() {
+    AVL_Tree() {
         root = null;
     }
 
@@ -17,6 +17,11 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
     @Override
     public int getHeight() {
         return root == null ? -1 : root.getHeight();
+    }
+
+    @Override
+    public INode<T> getTree() {
+        return root;
     }
 
     @Override
@@ -63,11 +68,6 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
     }
 
     @Override
-    public INode<T> getSubTree() {
-        return null;
-    }
-
-    @Override
     public void insert(T x) {
         root = insert(x, root);
     }
@@ -106,7 +106,7 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
             else
                 t = doubleRotateRight(t);
 
-        t.setHeight(Math.max(getHeight(t.getLeftChild()), getHeight(t.getRightChild())) + 1);
+        updateHeight(t);
         return t;
     }
 
@@ -115,12 +115,13 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
      * For implementation trees, this is a single rotation for case 1.
      * Update heights, then return new root.
      */
-    private INode<T> rotateLeft(INode<T> t) {
-        INode<T> left = t.getLeftChild();
-        t.setLeftChild(left.getRightChild());
-        left.setRightChild(t);
-        t.setHeight(Math.max(t.getLeftChild().getHeight(), t.getRightChild().getHeight()) + 1);
-        left.setHeight(Math.max(left.getLeftChild().getHeight(), t.getHeight()) + 1);
+    private INode<T> rotateLeft(INode<T> node) {
+        INode<T> left = node.getLeftChild();
+        node.setLeftChild(left.getRightChild());
+        left.setRightChild(node);
+
+        updateHeight(node);
+        updateHeight(left);
         return left;
     }
 
@@ -140,12 +141,13 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
      * For implementation trees, this is a single rotation for case 1.
      * Update heights, then return new root.
      */
-    private INode<T> rotateRight(INode<T> t) {
-        INode<T> right = t.getRightChild();
-        t.setRightChild(right.getLeftChild());
-        right.setLeftChild(t);
-        t.setHeight(Math.max(getHeight(t.getRightChild()), getHeight(t.getLeftChild())) + 1);
-        right.setHeight(Math.max(getHeight(right.getRightChild()), getHeight(t)) + 1);
+    private INode<T> rotateRight(INode<T> node) {
+        INode<T> right = node.getRightChild();
+        node.setRightChild(right.getLeftChild());
+        right.setLeftChild(node);
+
+        updateHeight(node);
+        updateHeight(right);
         return right;
     }
 
@@ -160,16 +162,29 @@ public class AVL_Tree<T extends Comparable<T>> implements IAVL_Tree<T> {
         return rotateRight(t);
     }
 
+    /**
+     * @param t node
+     * @return height of this node
+     */
     private int getHeight(INode<T> t) {
         return t == null ? -1 : t.getHeight();
     }
 
+    /**
+     * Updates a node height after insertion occurs
+     *
+     * @param node Node
+     */
     private void updateHeight(INode<T> node) {
         int leftHeight = getHeight(node.getLeftChild());
         int rightHeight = getHeight(node.getRightChild());
         node.setHeight(Math.max(leftHeight, rightHeight) + 1);
     }
 
+    /**
+     * @param t tree
+     * @return minimum node at the given tree t
+     */
     private INode<T> getMin(INode<T> t) {
         INode<T> min = t;
         while (min.getLeftChild() != null) min = min.getLeftChild();

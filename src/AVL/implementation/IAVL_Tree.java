@@ -11,7 +11,7 @@ public interface IAVL_Tree<T extends Comparable<T>> {
 
     boolean search(T key);
 
-    INode<T> getSubTree();
+    INode<T> getTree();
 
     void insert(T key);
 

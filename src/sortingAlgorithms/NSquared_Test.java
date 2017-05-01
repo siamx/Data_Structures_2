@@ -1,4 +1,4 @@
-package SortingAlgorithms;
+package sortingAlgorithms;
 
 import org.junit.Test;
 

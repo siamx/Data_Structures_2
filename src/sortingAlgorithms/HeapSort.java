@@ -1,4 +1,4 @@
-package SortingAlgorithms;
+package sortingAlgorithms;
 
 /*
  * Created by Ahmed on 3/17/2017.
@@ -28,7 +28,7 @@ class HeapSort<T extends Comparable<T>> {
         }
     }
 
-    //Max Heap-ify
+    //Max heap-ify
     private void heapify(int i) {
         int l = getLeft(i);
         int r = getRight(i);
@@ -53,7 +53,7 @@ class HeapSort<T extends Comparable<T>> {
 
     public T poll() {
         if (heapArray.size() == 0)
-            throw new RuntimeException("Heap is Empty !");
+            throw new RuntimeException("heap is Empty !");
         T root = heapArray.get(0);
         swap(0, heapArray.size() - 1);
         heapArray.remove(heapArray.size() - 1);

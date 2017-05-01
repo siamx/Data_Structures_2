@@ -1,4 +1,4 @@
-package Heap;
+package heap;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ class HeapTest {
         Integer[] arr = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
         List<Integer> heapArray = new ArrayList<>(Arrays.asList(arr));
         heapBuilder.buildMaxHeap(heapArray);
-        System.out.println("Built Heap : " + heapArray);
+        System.out.println("Built heap : " + heapArray);
     }
 
     @Test
