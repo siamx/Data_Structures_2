@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
+/*
  * Created by ahmed on 5/1/17.
  */
 public class Main {

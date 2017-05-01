@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-/**
+/*
  * Created by ahmed on 5/1/17.
  */
 public class Dictionary implements IDictionary {
