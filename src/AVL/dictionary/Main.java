@@ -21,9 +21,12 @@ public class Main {
     public static void main(String[] args) {
         boolean run = true;
         dictionary.load(new File(dictionaryFile));
+        out("Type ? for help");
         while (run) {
-            showMenu();
             switch (input.nextLine()) {
+                case "?":
+                    showMenu();
+                    break;
                 case "1":
                     printSize();
                     break;
