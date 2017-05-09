@@ -16,7 +16,7 @@ public class Main {
     private static final String deletionsFile = relativePath + "/src/AVL/files/deletions.txt";
     private static final String queriesFile = relativePath + "/src/AVL/files/queries.txt";
     private static Dictionary dictionary = new Dictionary();
-    private static ArrayList<String> words = new ArrayList<>();
+    private static ArrayList<String> words;
 
     public static void main(String[] args) {
         boolean run = true;
@@ -131,6 +131,7 @@ public class Main {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String word;
+            words = new ArrayList<>();
             while ((word = bufferedReader.readLine()) != null) {
                 words.add(word);
             }
