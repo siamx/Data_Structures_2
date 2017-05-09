@@ -63,6 +63,7 @@ public class Main {
     }
 
     private static void showMenu() {
+        out("[?] Show this menu");
         out("[1] Print Dictionary Size");
         out("[2] Insert new word");
         out("[3] Search for a word");
