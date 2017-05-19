@@ -1,4 +1,4 @@
-package AVL.dictionary;
+package avl.dictionary;
 
 import java.io.File;
 

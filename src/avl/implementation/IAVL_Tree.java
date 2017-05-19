@@ -1,4 +1,4 @@
-package AVL.implementation;
+package avl.implementation;
 
 /*
  * Created by ahmed on 5/1/17.

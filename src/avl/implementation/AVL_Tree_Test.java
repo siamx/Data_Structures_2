@@ -1,4 +1,4 @@
-package AVL.implementation;
+package avl.implementation;
 
 import org.junit.Test;
 

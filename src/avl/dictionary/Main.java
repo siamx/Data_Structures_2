@@ -1,4 +1,4 @@
-package AVL.dictionary;
+package avl.dictionary;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,9 +12,9 @@ import java.util.Scanner;
 public class Main {
     private static final Scanner input = new Scanner(System.in);
     private static final String relativePath = System.getProperty("user.dir");
-    private static final String dictionaryFile = relativePath + "/src/AVL/files/dictionary.txt";
-    private static final String deletionsFile = relativePath + "/src/AVL/files/deletions.txt";
-    private static final String queriesFile = relativePath + "/src/AVL/files/queries.txt";
+    private static final String dictionaryFile = relativePath + "/src/avl/files/dictionary.txt";
+    private static final String deletionsFile = relativePath + "/src/avl/files/deletions.txt";
+    private static final String queriesFile = relativePath + "/src/avl/files/queries.txt";
     private static Dictionary dictionary = new Dictionary();
     private static ArrayList<String> words;
 

@@ -1,7 +1,7 @@
-package AVL.dictionary;
+package avl.dictionary;
 
-import AVL.implementation.AVL_Tree;
-import AVL.implementation.IAVL_Tree;
+import avl.implementation.AVL_Tree;
+import avl.implementation.IAVL_Tree;
 
 import java.io.BufferedReader;
 import java.io.File;
