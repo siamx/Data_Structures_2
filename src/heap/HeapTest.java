@@ -45,4 +45,32 @@ class HeapTest {
         }
         assertEquals(queue.isEmpty(), maxHeap.isEmpty());
     }
+
+    @Test
+    void testMinHeap() {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        IHeap<Integer> minHeap = new MinHeap<>();
+        Random random = new Random();
+
+        for (int i = 0; i < random.nextInt(10000); i++) {
+            int randNum = random.nextInt(Integer.MAX_VALUE);
+            queue.add(randNum);
+            minHeap.insert(randNum);
+        }
+
+        log(queue.poll());
+        log(minHeap.poll());
+
+        while (!queue.isEmpty() && !minHeap.isEmpty()) {
+            assertEquals(queue.size(), minHeap.size());
+            assertEquals(queue.peek(), minHeap.peek());
+            assertEquals(queue.poll(), minHeap.poll());
+            assertEquals(queue.isEmpty(), minHeap.isEmpty());
+        }
+        assertEquals(queue.isEmpty(), minHeap.isEmpty());
+    }
+
+    private void log(Object str) {
+        System.out.println(str);
+    }
 }

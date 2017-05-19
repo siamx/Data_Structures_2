@@ -10,5 +10,5 @@
 
 
 ### Lab 2 ( AVL_Tree & Dictionary As Application)
-- [avl Tree](src/avl/implementation/)
+- [AVL Tree](src/avl/implementation/)
 - [Dictionary](src/avl/dictionary)
