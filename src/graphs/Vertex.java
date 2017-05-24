@@ -6,7 +6,7 @@ package graphs;
 
 class Vertex {
     int parent;
-    int pweight;
+    int parentWeight;
     State state;
 
     Vertex() {
@@ -14,7 +14,6 @@ class Vertex {
         parent = -1;
     }
 
-    //State enumeration for vertices during traversal.
     public enum State {
         Undiscovered, Discovered
     }

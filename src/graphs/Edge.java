@@ -4,7 +4,7 @@ package graphs;
  * Created by ahmed on 5/19/17.
  */
 class Edge implements Comparable {
-    public Edge next;
+    Edge next;
     int from;
     int to;
     int weight;
