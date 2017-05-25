@@ -6,7 +6,6 @@ package graphs;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Scanner;
 
 import static graphs.Vertex.State;
 import static graphs.Vertex.State.Discovered;
@@ -24,17 +23,16 @@ public class Prim {
         Prim g = new Prim(false);
         g.initializeGraph();
         g.primMST();
-        g.printGraph();
         g.printParents();
     }
 
     //Initialize the graph from a given file.
     private void initializeGraph() {
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter vertex #: ");
-        int vertexCount = scanner.nextInt();
-        vertexCount++;
+//        System.out.println("Enter vertex #: ");
+//        int vertexCount = scanner.nextInt();
+        int vertexCount = 10;
 
         //Initialize the vertices.
         vertices = new Vertex[vertexCount];
@@ -42,25 +40,51 @@ public class Prim {
 
         //Initialize the adjacency list.
         adjacencyList = new Edge[vertexCount];
+//
+//        System.out.println("Enter Edge #: ");
+//        int edgeCount = scanner.nextInt();
+//
+//        System.out.println("Enter Edges in form (From To Cost): ");
+//        for (int i = 0; i < edgeCount; i++) {
+//            int src = scanner.nextInt();
+//            int dest = scanner.nextInt();
+//            int cost = scanner.nextInt();
+//            addEdge(src, dest, cost);
+//        }
 
-        System.out.println("Enter Edge #: ");
-        int edgeCount = scanner.nextInt();
+        // a b c d e f g h i
+        // 1 2 3 4 5 6 7 8 9
 
-        System.out.println("Enter Edges in form (From To Cost): ");
-        for (int i = 0; i < edgeCount; i++) {
-            int src = scanner.nextInt();
-            int dest = scanner.nextInt();
-            int cost = scanner.nextInt();
-            addEdge(src, dest, cost);
-        }
-//        for testing
-//        addEdge(1, 2, 2);
-//        addEdge(1, 5, 1);
-//        addEdge(1, 6, 7);
-//        addEdge(2, 3, 3);
-//        addEdge(2, 5, 4);
-//        addEdge(3, 4, 2);
-//        addEdge(5, 4, 9);
+
+        // a b 4
+        addEdge(1, 2, 4);
+        // a h 8
+        addEdge(1, 8, 8);
+        // b h 11
+        addEdge(2, 8, 11);
+        // b c 8
+        addEdge(2, 3, 8);
+        // h i 7
+        addEdge(8, 9, 7);
+        // c i 2
+        addEdge(3, 9, 2);
+        // i g 6
+        addEdge(9, 7, 6);
+        // h g 1
+        addEdge(8, 7, 1);
+        // g f 2
+        addEdge(7, 6, 2);
+        // c f 4
+        addEdge(3, 6, 4);
+        // c d 7
+        addEdge(3, 4, 7);
+        // d f 14
+        addEdge(4, 6, 14);
+        // f e 10
+        addEdge(6, 5, 10);
+        // d e 9
+        addEdge(4, 5, 9);
+
     }
 
 
@@ -135,24 +159,26 @@ public class Prim {
         }
     }
 
-    private void printGraph() {
-        System.out.println("Full Graph is: G {");
-        for (Edge e : adjacencyList) {
-            while (e != null) {
-                System.out.println("\t" + e.from + " -> " + e.to + " \tCost: " + e.weight);
-                e = e.next;
-            }
-        }
-        System.out.println("}");
-    }
+//    private void printGraph() {
+//        System.out.println("Full Graph is: G {");
+//        for (Edge e : adjacencyList) {
+//            while (e != null) {
+//                System.out.println("\t" + (char) e.from + " -> " + (char) e.to + " \tCost: " + e.weight);
+//                e = e.next;
+//            }
+//        }
+//        System.out.println("}");
+//    }
 
     private void printParents() {
-        System.out.println("Minimum Spanning Tree is G {");
+        int totalCost = 0;
+        System.out.println("Minimum Spanning Tree is G: ");
         for (int i = 0; i < vertices.length; ++i) {
             Vertex v = vertices[i];
             if (v.parent == -1) continue;
-            System.out.println("\t" + v.parent + " -> " + i + "\tCost: " + v.parentWeight);
+            totalCost += v.parentWeight;
+            System.out.println("\t" + (char) (v.parent + 96) + "    ->    " + (char) (i + 96) + "   \tCost: " + v.parentWeight);
         }
-        System.out.println("}");
+        System.out.println("\nTotal Cost = " + totalCost);
     }
 }
