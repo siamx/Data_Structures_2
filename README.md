@@ -12,3 +12,8 @@
 ### Lab 2 ( AVL_Tree & Dictionary As Application)
 - [AVL Tree](src/avl/implementation/)
 - [Dictionary](src/avl/dictionary)
+
+
+### Lab3 (Dijkstra & Prim Algorithms)
+- [Dijkstra](src/graphs/Dijkstra.java)
+- [Prim](src/graphs/Prim.java)
